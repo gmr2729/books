@@ -14,7 +14,7 @@ Created variant type table to handle json loading and using copy command to load
 As per the requirement I am also creating views on top of the json data and extracting the json data and flattening json data as per requirement. I have also showcased the analytical queries as per the case study.
 
 
-![image](https://user-images.githubusercontent.com/127125623/223194535-adeca689-466b-495d-a11b-11969b161ad2.png)
 
+# Histogram of total appearances of each publisher
 
-
+![image](https://user-images.githubusercontent.com/127125623/223199305-c97a20c9-85c3-47d3-bfec-6e6adbf2b05e.png)
