@@ -75,36 +75,3 @@ SELECT
 , book_publisher
 , COALESCE((round(book_rank - previous_month_rank)/previous_month_rank *100),0) AS uprising_trends
 FROM monthly_book_lag;
-
-
-Create a Dashboard (for example, in Snowflake) that will:
-- Display a histogram of total appearances of each publisher.
-
-with book_points as (
-SELECT * , CASE WHEN book_rank = 1 THEN 15
-                WHEN book_rank = 2 THEN 14
-                WHEN book_rank = 3 THEN 13
-                WHEN book_rank = 4 THEN 12
-                WHEN book_rank = 5 THEN 11
-                WHEN book_rank = 6 THEN 10
-                WHEN book_rank = 7 THEN 9
-            	WHEN book_rank = 8 THEN 8
-                WHEN book_rank = 9 THEN 7
-                WHEN book_rank = 10 THEN 6
-                WHEN book_rank = 11 THEN 5
-                WHEN book_rank = 12 THEN 4
-                WHEN book_rank = 13 THEN 3
-                WHEN book_rank = 14 THEN 2
-                ELSE 0 END AS points
-FROM V_LISTS_BOOKS r),
-
-publisher as (
-select book_publisher, sum(points) points from book_points group by book_publisher order by points desc)
-
-SELECT 
-    book_publisher, 
-    points,
-    WIDTH_BUCKET(points,0,80,8) AS POINTS_GROUP
-  FROM publisher;
-  
-- Plot the historical trend of the 3 top books in “the current” month
