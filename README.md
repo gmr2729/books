@@ -48,8 +48,10 @@ The main objective of the task to read json data from books api and load the req
 ![image](https://user-images.githubusercontent.com/127125623/223197314-04a15fbd-ae4d-40d4-a1ae-10ce12a2b824.png)
 
 1. The python code is written in AWS Lambda which read json from books api and fetch required list based on list_name.  
-
+   
 2. Once the data fetch is completed for 5 list_names the data is pushed into S3.
+
+   python code - newest_list.py, retrieve_books_api.py
 
 3. The handshaking code between AWS and S3 can also be found out in aws_sf_configuration.sql. 
 
